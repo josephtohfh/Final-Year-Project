@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CMOS Circuit Drawing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/circuit.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/bd52c29e06.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body onload="drawCMOS()">
+    <div class="container">
+        <div id="draw" class="justify-center flex-column">
+            <div id="nav">
+                <div class="nav-item">Draw CMOS
+                    <button id="help-button">
+                        <i class="fa-regular fa-question-circle"></i>
+                    </button>
+                </div>
+                <a href="index.html" class="nav-item">Practice MCQ</a>
+            </div>
+            <canvas id="myCanvas" width="700" height="470"></canvas>
+
+            <div class="draw-container">
+                <input type="text" id="draw-input" value="(A+B)*C*D'">
+            </div>
+
+            <button id="draw-button" class="btn" onclick="drawCMOS()">DRAW CIRCUIT</button>
+        </div>
+    </div>
+</body>
+
+
+
+<dialog class="modal" id="modal">
+    <button class="close-button">
+        <i class="fa-solid fa-x"></i>
+    </button>
+    <p style="text-decoration: underline;color: rgb(255, 202, 51);">How To Draw</p>
+    <p style="font-size: 2rem;">Enter CMOS circuit equation of 3 to 5 inputs</p>
+    <ul class="instructions">
+        <li>Each input should be represented by letter</li>
+        <li>Letter Z should not be used</li>
+        <li>The operations AND and OR are represented by * and + respectively</li>
+        <li>The operation NOT is represented by '</li>
+        <li>Equation should have at most 2 input inversion i.e. A'</li>
+        <li>Equation should have at most 1 output inversion</li>
+        <li>Output inversion can be added with ( at the start and )' at the end</li>
+    </ul>
+    <hr style="margin: 10px 0 10px 0;"> 
+    <p style="font-size: 1.8rem">Examples</p>
+    <table class="examples">
+        <tr>
+            <td>A+B*C</td>
+            <td>B*C+D'</td>
+            <td>(I'+E+M')'</td>
+        </tr>
+        <tr>
+            <td>(A+B)*C*D'</td>
+            <td>(C'+M)*(O'+S)</td>
+            <td>(D*C*B'*A)'</td>
+        </tr>
+        <tr>
+            <td>(A+B)*C*D'+E</td>
+            <td>(B+C)*(D+E+A)</td>
+            <td>(C*(I+G*(L+O')))'</td>
+        </tr>
+    </table>
+</dialog>
+
+
+
+<script>
+    const modal = document.querySelector(".modal");
+    const openModal = document.querySelector("#help-button");
+    const closeModal = document.querySelector(".close-button");
+
+    openModal.addEventListener("click", () => {
+        modal.showModal();
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.close();
+    });
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CMOS Circuit Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/circuit.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="generateMCQ()">
+    <div class="container">
+        <div id="practice" class="justify-center flex-column">
+            <div id="nav">
+                <div class="nav-item">Practice MCQ</div>
+                <a href="draw-cmos.html" class="nav-item">Draw CMOS</a>
+            </div>
+            <canvas id="myCanvas" width="700" height="470"></canvas>
+
+            <div class="btn-grid">
+                <div class="option-container">
+                    <p class="option-text" id="option1">A+B+C</p>
+                </div>
+                <div class="option-container">
+                    <p class="option-text" id="option2">A*B+C</p>
+                </div>
+                <div class="option-container">
+                    <p class="option-text" id="option3">A+B*C</p>
+                </div>
+                <div class="option-container">
+                    <p class="option-text" id="option4">A*B*C</p>
+                </div>
+            </div>
+
+            <button id="new" class="btn" onclick="generateMCQ()">NEW CIRCUIT</button>
+        </div>
+    </div>
+</body>
+
+
+</html>

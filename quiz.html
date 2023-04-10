@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CMOS Circuit Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/circuit.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/bd52c29e06.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="quiz" class="justify-center flex-column">
+            <div id="hud">
+                <div class="hud-item">
+                    <p id="progressText" class="hud-prefix">
+                        Question
+                    </p>
+                    <div id="progressBar">
+                        <div id="progressBarFull"></div>
+                    </div>
+                </div>
+                <div class="hud-item">
+                    <p class="hud-prefix">
+                        Score
+                    </p>
+                    <h1 class="hud-main-text" id="score">
+                        0
+                    </h1>
+                </div>
+            </div>
+            <canvas id="myCanvas" width="700" height="470"></canvas>
+            <div class="btn-grid">
+                <div class="option-container">
+                    <p class="option-text" data-number="1" id="option1">A+B+C</p>
+                </div>
+                <div class="option-container">
+                    <p class="option-text" data-number="2" id="option2">A*B+C</p>
+                </div>
+                <div class="option-container">
+                    <p class="option-text" data-number="3" id="option3">A+B*C</p>
+                </div>
+                <div class="option-container">
+                    <p class="option-text" data-number="4" id="option4">A*B*C</p>
+                </div>
+            </div>
+
+            <!-- <button id="new" class="btn" onclick="generateMCQ()">NEW CIRCUIT</button> -->
+        </div>
+    </div>
+</body>
+
+<dialog class="modal" id="modal">
+    <button class="close-button">
+        <i class="fa-solid fa-x"></i>
+    </button>
+    <p>You have scored: <span class="stats" id="result-text"></span></p>
+    <hr style="margin: 10px 0 10px 0;">
+    <p>Statistics</p>
+    <ul class="statistics">
+        <li>Last Quiz Score: <span class="stats" id="last-score"></span></li>
+        <li>Quiz Attempts: <span class="stats" id="total-quiz"></span></li>
+        <li>Average Score: <span class="stats" id="avg-score"></span></li>
+    </ul>
+    <hr style="margin: 10px 0 10px 0;">
+    <p>*Close this dialog to restart quiz.</p>
+</dialog>
+
+<script>
+    const modal = document.querySelector(".modal");
+    const closeModal = document.querySelector(".close-button");
+
+    closeModal.addEventListener("click", () => {
+        modal.close();
+        setTimeout(() => {
+            window.location.href="quiz.html";
+        }, 500)
+    });
+</script>
+
+<script src="js/quiz.js"></script>
+
+</html>
